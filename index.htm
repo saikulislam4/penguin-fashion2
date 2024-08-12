@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>penguin fashion</title>
+    <!-- bebas and roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/b7f823b944.js" crossorigin="anonymous"></script>
+
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-color": "#A4BC46",
+              "secondary-color": "#FABE4C",
+              "bebas-font": 'font-family: "Bebas Neue", sans-serif;',
+              "roboto-font": 'font-family: "Roboto", sans-serif;',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <header class="bg-[#FFFBF0] py-10">
+        <!-- nav section -->
+      <nav x-data="{ isOpen: false }" class="relative">
+        <div
+          class="container py-4 mx-auto md:flex md:justify-between md:items-center"
+        >
+          <div class="flex items-center justify-between">
+            <a href="#">
+              <h2 class="capitalize bebas-font text-2xl font-semibold text-primary-color">penguin <span class="text-black">fashion</span></h2>
+            </a>
+
+            <!-- Mobile menu button -->
+            <div class="flex lg:hidden">
+              <button
+                x-cloak
+                @click="isOpen = !isOpen"
+                type="button"
+                class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                aria-label="toggle menu"
+              >
+                <svg
+                  x-show="!isOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 8h16M4 16h16"
+                  />
+                </svg>
+
+                <svg
+                  x-show="isOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+          <div
+            x-cloak
+            :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+            class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center"
+          >
+            <div class="flex text-black flex-col md:flex-row md:mx-6">
+              <a
+                class="my-2 transition-colors md:mx-4 md:my-0"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="my-2 transition-colors md:mx-4 md:my-0"
+                href="#"
+                >Shop</a
+              >
+              <a class="my-2 transition-colors md:mx-4 md:my-0"
+                href="#"
+                >About</a>
+              <a class="my-2 transition-colors md:mx-4 md:my-0"
+                href="#"
+                >Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- banner section -->
+       <section class="flex flex-col lg:flex-row container mx-auto items-center lg:py-28">
+        <div class="flex-1 space-y-4">
+            <h1 class="text-7xl uppercase text-secondary-color font-bebas font-semibold">Be the Penguins <br>
+                <span class="text-black">of Winter</span></h1>
+            <p class="font-roboto">Lorem Ipsum is simply dummy text of the printing <br>
+                and typesetting industry.</p>
+            
+            <button class="bg-gradient-to-r py-2 px-3 from-[#A4BC46] to-[#85A019] rounded-lg uppercase  text-white "><i class="fa-solid mr-2 fa-cart-shopping"></i> buy now</button>
+        </div>
+        <div class="flex-1">
+            <img src="images/model.png" alt="">
+        </div>
+       </section>
+    </header>
+  </body>
+</html>
